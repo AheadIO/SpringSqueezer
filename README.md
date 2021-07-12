@@ -14,7 +14,7 @@ Aspects that can be tested:
 
 ## Hardware:
 ### Printed:
-You will need to print two major structural parts of the machine - the motor mount and the rod scaffolding.
+You will need to print two major structural parts of the machine - the motor mount and the rod scaffolding and 3 smaller parts - the cable termination block and the top and bottom of the drum
 
 ### Bought:
 <ul><li>
@@ -22,25 +22,37 @@ motor - Eaglepower 8308 https://pl.aliexpress.com/item/4000563826414.html?spm=a2
 <li> driver - moteus r4.5 (compatible with r4.3)
 https://mjbots.com/collections/servos-and-controllers/products/moteus-r4-5
 <li>2x clamps to clamp ot to the desk
-<li>4x M2.5x8 screws for the moteus driver (if no heatsink) or 4x M2.5x14 countersunk screws for the moteus driver (if org moteus heasink used)
-<li>4x M4x12 - to screw down the Eaglepower 8308
-<li>4x M2.5x8 screws for the moteus driver (if no heatsink) or 4x M2.5x14 countersunk screws for the moteus driver (if org moteus heasink used)
-<li>
+<li>4x M2.5x10 screws for the moteus driver (if no heatsink) or 4x M2.5x16 countersunk screws for the moteus driver (if org moteus heasink used)
+<li>4x M4x12 hex screws- to screw down the Eaglepower 8308
+<li>4x M5x50 hex screws - for connecting the linear_rod_holder with the motor_cage
+<li>4x M5 square nuts - for connecting the linear_rod_holder with the motor_cage
+<li>2x M4x30  hex screws - for the capstan drum
+<li>2x M4 square nuts - for the capstan drum
+<li>6x M3x10 countersunk hex screws - 4 of them for mounting capstan drum to the motor and 2 of the act as drum reinforcement (they screw from the bottom of "capstan_mech_small_drum_bottom")<li>4x M3x20 hex screws - for tightening the 8mm linear rod mounts
+<li>6x M3x15 hex screws - for mounting the LMK8LUU linear bearings
+<li>2x M3x50 hex screws - they act as structural reinforcement of the motor cage
+<li>12x M3 square nuts - 4 of them for tightening the 8mm linear rod mounts, 6 of them for mounting the LMK8LUU linear bearings and 2 of them for the long structural reinforcement screws
+<li>1x M5 eye bolt - or you can adapt to any other mounting method you want to use in your robot. M5 eye bolt we use: https://pl.aliexpress.com/item/1005001623167300.html?spm=a2g0s.9042311.0.0.37aa5c0fBCzdPX 
+<li>1x M5 nut - for the M5 eye bolt
+<li>1x Cable assembly (ours includes a crimp and 1.5mm DYNEEMA rope, but it ommits the thimble, yours can be different)
+<li>2x LMK8LUU linear bearings
+<li>2x 250~300mm linera rods
+
 </ul>
 
 ## Software
 
-Included in this repo in the software folder is a screipt that automates the testing. You just input the readouts of the scale and at the end you get a .csv with results. You need to set parameters:
+Included in this repo in the software folder is a screipt that automates the testing. You set the parameters to your liking. You need to make sure that the system is thermaly stable and you don't cook your motor. We highly recommend pointing some kind of fan at the assembly during the tests. The deafults are what we used for our testing. The vairables with description:
 <ul>
-<li>rod_length - rod length from center of motor to the center of the bearing in meters
-<li>max_torque - range of commanded torques will be from zero to this value
-<li>step_count - how many measurements you want to do
-<li>ramp_up_time - no to create a hard hit torque will ramp up to the max <li>value over this amount of time
-<li>hold_time - if no user input is provided motor will turn off after this time to prevent overheating
-<li>safety_max_velocity -if rotational velocity gets higher than this the machine stops commanding torque
-<li>direction_flip - (True/False) you can flip the direction in which the test will be performed
+<li>pull_duration - first part of the cycle - over this amount of time the motor pulls the cable with full Troque
+<li>release_duration next part of the cycle - a gradual release starting at max torque ending at standby_torque
+<li>duty_cycle - cycle of the test
+<li>max_torque - maximum torque exerted by the motor
+<li>standbay_torque - between pulls the motor still exerts some torque - to keep the cable tight
+<li>rotational_speed_safety_limit - if motor spins above that rotational velocity the test is interrupted - this makes sure that the test does not continue after the rope breaks
 </ul>
+
 
 ## Usage
 
-You will be asked to perform a series of measurements. To start a measurement you will click Enter. Than the motor will start exerting force on the scale, it will quickly ramp it up (over ramp_up_time) instead of instantly turning it on to avoid a sudden hit. It will hold torque for some time (hold_time) and than release. You need to read out the value shown by the scale during the time when the motor holds (in grams)  and input it into this program, and click enter to accept the value, then enter again to start next measurement.
+Fasten the rig to your cable with clamps, assemble your rope, set the parameters, point the fan at the test rig, make sure the rig is thermally stable and run the test till something breaks. If you interrupt the test, and you want to start it again but you want the count to continue- not start from zero - you should set the previous amount as the value of the "counter" variable.

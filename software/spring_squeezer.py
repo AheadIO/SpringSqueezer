@@ -4,17 +4,18 @@ import time
 
 def main():
     #############################################   SETUP PARAMETERS   ################################################
-    pull_duration = 0.07 # First part of the cycle - over this amount of time the motor pulls the cable with full Troque
-    release_duration = 0.15 # next part of the cycle - a gradual release starting at max torque ending at standby_torque
-    duty_cycle = 0.8 #duty cycle of the test
+    pull_duration = 0.1 # First part of the cycle - over this amount of time the motor pulls the cable with full Troque
+    release_duration = 0.1 # next part of the cycle - a gradual release starting at max torque ending at standby_torque
+    duty_cycle = 1 #duty cycle of the test
     max_torque = 3 #maximum torque exerted by the motor
-    standbay_torque = 0.05 #between pulls the motor still exerts some torque - to keep the cable tight
+    standbay_torque = 0.1 #between pulls the motor still exerts some torque - to keep the cable tight
+    rotational_speed_safety_limit = 25 #if motor spins above that rotational vel the test is interrupted - this makes sure that the test does not continue after the rope breaks
+    counter = 0 #if you had to interrupt testing and need to start again but not count from 0 - input the number starting number you want here
     ###################################################################################################################
 
     c = Controller(controller_ID=1) #create controller object
     c.command_stop() #comand_stop cleares anny errors/faults in the controller
     max_measured_velocity = 0 #this variable stores the max measured rotational velocity of the motor and is used for safety and can be observed as an erformance indicator
-    counter = 0 #if you had to interrupt testing and need to start again but not count from 0 - input the number starting number you want here.
     time_zero = time.time()
     previous_phase = 0 #variable used to detect switching from one cycle to the next
     while True:
@@ -38,7 +39,7 @@ def main():
         if max_measured_velocity < abs(measurements[MoteusReg.MOTEUS_REG_VELOCITY]): #for diagnostics
             max_measured_velocity = abs(measurements[MoteusReg.MOTEUS_REG_VELOCITY])
             print("Max velocity that occured so far: " + str(abs(measurements[MoteusReg.MOTEUS_REG_VELOCITY])))
-        if max_measured_velocity>25: break;
+        if max_measured_velocity>rotational_speed_safety_limit: break
 
         if (previous_phase > phase): #code for counting phase cycles
             counter = counter + 1
