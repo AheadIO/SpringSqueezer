@@ -18,26 +18,15 @@ You will need to print two major structural parts of the machine - the motor mou
 
 ### Bought:
 <ul><li>
-motors - Eaglepower 8308 https://pl.aliexpress.com/item/4000563826414.html?spm=a2g0s.9042311.0.0.27425c0fCLdyW7
-<li>https://pl.aliexpress.com/item/1005002190950645.html?spm=a2g0s.9042311.0.0.46c95c0fN0xeKe </ul>
-
-<li>driver - moteus r4.5 (compatible with r4.3)
+motor - Eaglepower 8308 https://pl.aliexpress.com/item/4000563826414.html?spm=a2g0s.9042311.0.0.27425c0fCLdyW7
+<li> driver - moteus r4.5 (compatible with r4.3)
 https://mjbots.com/collections/servos-and-controllers/products/moteus-r4-5
-
-<li>2x clamps to clamp the assembly to the desk
-
+<li>2x clamps to clamp ot to the desk
 <li>4x M2.5x8 screws for the moteus driver (if no heatsink) or 4x M2.5x14 countersunk screws for the moteus driver (if org moteus heasink used)
-
-<li>Screws to screw the motor to the stand + screws to screw the rod to the motor, in our case it was:
-<ul><li>For the Eaglepower 8308:
-<ul><li>4xM4x12
-<li>2xM3x30
-<li>2xM3x10 countersunk</ul>
-
-<li>For the DYS8108:
-<ul><li>4xM3x12
-<li>4xM3x30</ul>
-</ul></ul>
+<li>4x M4x12 - to screw down the Eaglepower 8308
+<li>4x M2.5x8 screws for the moteus driver (if no heatsink) or 4x M2.5x14 countersunk screws for the moteus driver (if org moteus heasink used)
+<li>
+</ul>
 
 ## Software
 
