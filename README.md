@@ -27,6 +27,8 @@ You will need to print two major structural parts of the machine - the motor mou
 motor - Eaglepower 8308 https://pl.aliexpress.com/item/4000563826414.html?spm=a2g0s.9042311.0.0.27425c0fCLdyW7
 <li> driver - moteus r4.5 (compatible with r4.3)
 https://mjbots.com/collections/servos-and-controllers/products/moteus-r4-5
+<li> mjbots CANFD to USB adapter - https://mjbots.com/collections/accessories/products/fdcanusb
+<li> PSU capable of ~500W at 24-34V
 <li>2x clamps to clamp ot to the desk
 <li>4x M2.5x10 screws for the moteus driver (if no heatsink) or 4x M2.5x16 countersunk screws for the moteus driver (if org moteus heasink used)
 <li>4x M4x12 hex screws- to screw down the Eaglepower 8308
