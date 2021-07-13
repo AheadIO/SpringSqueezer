@@ -1,6 +1,8 @@
 # SpringSqueezer
 A cable mechanism testing machine. It uses Springs as load - that where the names comes from.
 
+![Spring Squeezer F360 Screenshot 1](/images/F360_screenshot_1.png)
+
 ## What can be tested:
 This machine allows for practical evaluation of a capstan based cable mechanism. It works only for Capstan mechanisms that fasten the cable on the small drum and relay on that as a significant part of their load-bearing capability. An example of such a mechanism is the one we use on our robot - Stanley.
 
@@ -11,6 +13,10 @@ Aspects that can be tested:
 <li>Reliability and durability of termination
 <li>Slippage of the cable through the drum mounting points
 </ul>
+
+
+![Spring Squeezer F360 Screenshot 1](/images/F360_screenshot_2.png)
+
 
 ## Hardware:
 ### Printed:
