@@ -45,6 +45,7 @@ https://mjbots.com/collections/servos-and-controllers/products/moteus-r4-5
 <li>1x Cable assembly (ours includes a crimp and 1.5mm DYNEEMA rope, but it ommits the thimble, yours can be different)
 <li>2x LMK8LUU linear bearings
 <li>2x 250~300mm linera rods
+<li>2x Springs - We used 1,5x12x75 - but feel free to experiment with outer lengths/stifnesses - just make sure that the internal dimeter is bigger than 8
 
 </ul>
 
